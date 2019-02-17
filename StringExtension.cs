@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace PadawansTask12
 {
@@ -6,7 +8,21 @@ namespace PadawansTask12
     {
         public static bool AllCharactersAreUnique(string source)
         {
-            throw new NotImplementedException();
+            if (source == null) 
+                throw new ArgumentNullException();
+            if(source.Length == 0)
+                throw new ArgumentException();
+
+            List<char> resultList = new List<char>();
+            foreach (char ch in source)
+            {
+                if (!resultList.Contains(ch))
+                    resultList.Add(ch);
+                else
+                    return false;
+            }
+
+            return true;
         }
     }
 }
